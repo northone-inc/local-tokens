@@ -1,0 +1,38 @@
+{
+  "name": "local-tokens",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "npm run dev",
+    "test": "vitest",
+    "build": "make build",
+    "dev": "make watch",
+    "typegen": "tsc",
+    "postbuild": "npm run typegen"
+  },
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "Blake E <blake@northone.com> (https://www.northone.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^4.3.4",
+    "oauth2-mock-server": "^5.0.1",
+    "simple-oauth2": "^5.0.0",
+    "token-verify": "^0.1.6",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.34.0",
+    "@faker-js/faker": "^7.6.0",
+    "@tsconfig/node18": "^1.0.1",
+    "@types/debug": "^4.1.7",
+    "@types/simple-oauth2": "^4.1.1",
+    "@types/uuid": "^9.0.0",
+    "esbuild": "^0.16.10",
+    "eslint": "^8.30.0",
+    "vitest": "^0.26.1"
+  }
+}
