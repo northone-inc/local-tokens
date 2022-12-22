@@ -54,6 +54,7 @@
     "@types/uuid": "^9.0.0",
     "@vitest/coverage-c8": "^0.26.2",
     "esbuild": "^0.16.10",
+    "esbuild-node-externals": "^1.6.0",
     "esbuild-plugin-d.ts": "^1.1.0",
     "eslint": "^8.30.0",
     "vitest": "^0.26.1"

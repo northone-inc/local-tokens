@@ -2,6 +2,7 @@
 import { existsSync, rmSync } from 'node:fs'
 import { build } from 'esbuild'
 import { dtsPlugin } from 'esbuild-plugin-d.ts'
+import { nodeExternalsPlugin } from 'esbuild-node-externals'
 
 const outdir = 'dist'
 
@@ -33,5 +34,6 @@ build({
       },
     },
     dtsPlugin(),
+    nodeExternalsPlugin(),
   ],
 }).catch(() => process.exit(1))
