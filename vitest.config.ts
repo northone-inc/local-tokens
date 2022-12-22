@@ -6,6 +6,7 @@ export default defineConfig({
     silent: false,
     reporters: ['verbose'],
     coverage: {
+      reportsDirectory: '__coverage__',
       reporter: ['json', 'html', 'lcov'],
     },
   },

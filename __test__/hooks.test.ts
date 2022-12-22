@@ -38,6 +38,7 @@ describe('Hooks', async () => {
         if (scope.indexOf('fancy:') === 0) {
           const id = scope.split(':')[1]
           token.payload.fancyId = id
+          break
         }
       }
     })

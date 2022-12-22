@@ -31,6 +31,7 @@
     "@types/debug": "^4.1.7",
     "@types/simple-oauth2": "^4.1.1",
     "@types/uuid": "^9.0.0",
+    "@vitest/coverage-c8": "^0.26.2",
     "esbuild": "^0.16.10",
     "eslint": "^8.30.0",
     "vitest": "^0.26.1"

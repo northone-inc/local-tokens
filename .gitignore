@@ -1,6 +1,9 @@
 # build
 dist
 
+# test
+__coverage__
+
 # # Node Rules
 # > source: https://github.com/github/gitignore/blob/main/Node.gitignore
 
