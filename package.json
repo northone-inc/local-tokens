@@ -1,6 +1,6 @@
 {
   "name": "local-tokens",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Bundled oauth-mock-server with pre-configured token clients (sinple-oauth2) for testing services and middleware",
   "homepage": "https://github.com/northone-inc/local-tokens",
   "scripts": {
