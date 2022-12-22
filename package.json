@@ -2,8 +2,26 @@
   "name": "local-tokens",
   "version": "0.1.0",
   "description": "Bundled oauth-mock-server with pre-configured token clients (sinple-oauth2) for testing services and middleware",
-  "main": "dist/index.js",
   "homepage": "https://github.com/northone-inc/local-tokens",
+  "scripts": {
+    "start": "npm run dev",
+    "test": "vitest",
+    "build": "node esbuild.mjs",
+    "dev": "npm run build -- --watch"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "Blake E <blake@northone.com> (https://www.northone.com/)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "package.json",
+    "package-lock.json",
+    "README.md",
+    "LICENSE"
+  ],
   "keywords": [
     "testing",
     "oauth",
@@ -19,24 +37,6 @@
     "type": "git",
     "url": "https://github.com/northone-inc/local-tokens.git"
   },
-  "files": [
-    "dist",
-    "package.json",
-    "package-lock.json",
-    "README.md",
-    "LICENSE"
-  ],
-  "scripts": {
-    "start": "npm run dev",
-    "test": "vitest",
-    "build": "node esbuild.mjs",
-    "dev": "npm run build -- --watch"
-  },
-  "types": "dist/index.d.ts",
-  "engines": {
-    "node": ">=14.0.0"
-  },
-  "author": "Blake E <blake@northone.com> (https://www.northone.com/)",
   "license": "MIT",
   "dependencies": {
     "debug": "^4.3.4",

@@ -7,7 +7,6 @@ const outdir = 'dist'
 
 // allow some flags pass through to esbuild
 const watch = process.argv.includes('--watch')
-const coverage = process.argv.includes('--coverage')
 
 build({
   entryPoints: ['src/index.ts'],
@@ -16,7 +15,6 @@ build({
   platform: 'node',
   outdir,
   watch,
-  coverage,
   // external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
   plugins: [
     // custom inline plugin to empty outdir before build
