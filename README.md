@@ -70,6 +70,8 @@ describe('My Program', () => {
 
 Hooks are how to modify the server behaviour when creating tokens, validating requests and more!
 
+- For now, checkout [./__test__/hooks.test.ts](./__test__/hooks.test.ts) for usages
+
 ---
 
 ## Debugging
