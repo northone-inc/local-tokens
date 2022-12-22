@@ -1,22 +1,43 @@
 {
   "name": "local-tokens",
   "version": "0.1.0",
-  "description": "",
+  "description": "Bundled oauth-mock-server with pre-configured token clients (sinple-oauth2) for testing services and middleware",
   "main": "dist/index.js",
+  "homepage": "https://github.com/northone-inc/local-tokens",
+  "keywords": [
+    "testing",
+    "oauth",
+    "tokens",
+    "localhost",
+    "mocks",
+    "oauth-mock-server",
+    "auth",
+    "token-verify",
+    "simple-oauth2"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/northone-inc/local-tokens.git"
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "package-lock.json",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "start": "npm run dev",
     "test": "vitest",
-    "build": "make build",
-    "dev": "make watch",
-    "typegen": "tsc",
-    "postbuild": "npm run typegen"
+    "build": "node esbuild.mjs",
+    "dev": "npm run build -- --watch"
   },
   "types": "dist/index.d.ts",
   "engines": {
     "node": ">=14.0.0"
   },
   "author": "Blake E <blake@northone.com> (https://www.northone.com/)",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "debug": "^4.3.4",
     "oauth2-mock-server": "^5.0.1",
@@ -33,6 +54,7 @@
     "@types/uuid": "^9.0.0",
     "@vitest/coverage-c8": "^0.26.2",
     "esbuild": "^0.16.10",
+    "esbuild-plugin-d.ts": "^1.1.0",
     "eslint": "^8.30.0",
     "vitest": "^0.26.1"
   }

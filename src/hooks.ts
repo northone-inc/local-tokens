@@ -4,15 +4,21 @@ import Debugger from 'debug'
 
 const debug = Debugger('local-tokens:hooks')
 
+// TODO: consider real JWTPayload, from TokenVerify ?
+/**
+ * Payload values that can be used in token hooks
+ */
 interface AcceptedPayloadValues {
   [x: string]: string | boolean | string[] | boolean[]
-  // TODO: consider real JWTPayload, from TokenVerify ?
 }
 
 // export type Hook<Options = any | any[]> = (options?: Options) => HookFunction
 export type Hook<Options = any | string> = (options?: Options) => HookFunction
 export type HookFunction<TPayload = AcceptedPayloadValues> = (token: { payload: TPayload }, req: ExpressRequest) => void
 
+/**
+ * oauth-server-hooks supported atm
+ */
 interface HookTypes {
   /**
    * This allows middleware to modify tokens BEFORE they are signed
@@ -20,8 +26,11 @@ interface HookTypes {
   beforeTokenSigning: Map<string, HookFunction>
 }
 
-export class Hooks {
-  _hooks: HookTypes
+/**
+ * Manage hooks for LocalTokenServer
+ */
+export class LocalTokenHooks {
+  private _hooks: HookTypes
 
   constructor() {
     this._hooks = { beforeTokenSigning: new Map() }
@@ -29,6 +38,8 @@ export class Hooks {
 
   /**
    * Get all registered hook names
+   *
+   * @returns {array<string>} Array of hook names
    */
   get registered() {
     return Object.keys(this._hooks) as (keyof HookTypes)[]
@@ -48,6 +59,7 @@ export class Hooks {
     }
     const hookId = uuid()
     this._hooks[hookName].set(hookId, fn)
+    debug('Added hook', hookName, hookId)
     return hookId
   }
 

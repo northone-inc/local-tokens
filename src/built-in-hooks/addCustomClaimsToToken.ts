@@ -1,8 +1,8 @@
 import type { Hook } from '../hooks'
 
-export type CustomClaims = { name: string; value: string | boolean }[]
+export interface CustomClaim { name: string; value: string | boolean }
 
-export const addCustomClaimsToToken: Hook<CustomClaims> = (customClaims) => {
+export const addCustomClaimsToToken: Hook<CustomClaim[]> = (customClaims) => {
   return (token) => {
     if (customClaims && customClaims.length) {
       customClaims.forEach((claim) => {

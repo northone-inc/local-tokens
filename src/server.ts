@@ -4,8 +4,8 @@ import type { ModuleOptions as SimpleOAuth2ModuleOptions } from 'simple-oauth2'
 
 import Debugger from 'debug'
 
-import { Hooks } from './hooks'
-import { addAudienceToConform } from './hooks/addAudienceToConform'
+import { LocalTokenHooks } from './hooks'
+import { addAudienceToConform } from './built-in-hooks/addAudienceToConform'
 
 const debug = Debugger('local-tokens:server')
 
@@ -43,21 +43,27 @@ interface LocalTokensLive {
   audience: string
 }
 
+type Audience = string
+
 /**
  * LocalTokenServer
  * - An In-memory oauth-mock-server for generating and validating tokens
  * - Includes JSON Web Key Stores (jwks) support
  */
 export class LocalTokenServer {
-  public hooks: Hooks
+  public hooks: LocalTokenHooks
   // private
   private _instance: OAuth2Server
   private _config: LocalTokensConfig
 
-  constructor(private config: LocalTokensConfig) {
-    this._config = config
+  constructor(config: LocalTokensConfig | Audience) {
+    if (typeof config === 'string') {
+      this._config = { audience: config, secret: 'secret' }
+    } else {
+      this._config = config
+    }
     this._instance = new OAuth2Server()
-    this.hooks = new Hooks()
+    this.hooks = new LocalTokenHooks()
 
     this.hooks.add('beforeTokenSigning', addAudienceToConform(this._config.audience))
 
